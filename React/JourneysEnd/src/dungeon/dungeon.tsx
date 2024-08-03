@@ -61,6 +61,7 @@ export function DungeonLevel()
 
         if(action != "Idle")
         {
+            setMessage("");
             if (dungeon.map[player.x][player.y].blockType == "Gold")
             {
                 var itemValue = getGold();
@@ -111,6 +112,7 @@ export function DungeonLevel()
                 }              
             }
 
+            
             setAction("Idle");
         }
 
@@ -207,7 +209,7 @@ export function DungeonLevel()
                     dungeon.map.map((blocks, y) => 
                         blocks.map((block, x) => 
                         (
-                            <DungeonBlock type={dungeon.map[x][y].blockType} width={20} height={20} visible={true} playerLocation={x == player.x && y == player.y}/>
+                            <DungeonBlock type={dungeon.map[x][y].blockType} width={20} height={20} visible={dungeon.map[x][y].visible} playerLocation={x == player.x && y == player.y}/>
                         )
                 ))}
                 </Grid>
