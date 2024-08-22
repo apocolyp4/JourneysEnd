@@ -190,11 +190,9 @@ export function updateDungeonMap(player: Character, action: string, dungeon: Dun
 {
     if(dungeon.map[player.x][player.y].blockType != "Exit")
     {
-        /*
         dungeon.map[player.x][player.y].blockType = "Floor";
         dungeon.map[player.x][player.y].value = 32;
         dungeon.map[player.x][player.y].traversable = true;
-        */
     }
 
     return dungeon;

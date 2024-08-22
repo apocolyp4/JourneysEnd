@@ -13,7 +13,6 @@ import {Character, createPlayer, updateCharacter, setCharacterGold} from './play
 import {ItemValue} from './shared';
 import {getGold} from './gold';
 import {getGems} from './gems';
-import {getBook} from './book';
 
 export const dungeonWidth: number = 32;
 export const dungeonHeight: number = 32;
@@ -74,13 +73,6 @@ export function DungeonLevel()
             {
                 var itemValue = getGems();
                 setPlayer(setCharacterGold(player, player.gold + itemValue.value));
-                setMessage(itemValue.message);
-            }
-
-            if (dungeon.map[player.x][player.y].blockType == "Book")
-            {
-                var itemValue = getBook();
-                //setPlayer(setCharacterGold(player, player.gold + itemValue.value));
                 setMessage(itemValue.message);
             }
 
