@@ -13,6 +13,7 @@ import {Character, createPlayer, updateCharacter, setCharacterGold} from './play
 import {ItemValue} from './shared';
 import {getGold} from './gold';
 import {getGems} from './gems';
+import {getBook} from './book';
 
 export const dungeonWidth: number = 32;
 export const dungeonHeight: number = 32;
@@ -73,6 +74,44 @@ export function DungeonLevel()
             {
                 var itemValue = getGems();
                 setPlayer(setCharacterGold(player, player.gold + itemValue.value));
+                setMessage(itemValue.message);
+            }
+
+            if (dungeon.map[player.x][player.y].blockType == "Book")
+            {
+                var itemValue = getBook();
+                var tempDungeon: Dungeon = dungeon; 
+
+                if(itemValue.value == 1)
+                {
+                    //show where the exit to this level lies
+                    tempDungeon.map[dungeon.exit.x][dungeon.exit.y].visible = true;    
+                }
+                else if(itemValue.value == 2)
+                {
+                    //shows where the gold on this level lies
+                    for(let i = 0; i < dungeon.goldCount; i++)
+                    {
+                        tempDungeon.map[dungeon.gold[i].x][dungeon.gold[i].y].visible = true;
+                    }
+                }
+                else if(itemValue.value == 3)
+                {
+                    //shows where the gem on this level lies
+                    for(let i = 0; i < dungeon.gemCount; i++)
+                    {
+                        tempDungeon.map[dungeon.gems[i].x][dungeon.gems[i].y].visible = true;
+                    }
+                }
+                else if(itemValue.value == 4)
+                {
+                    //shows where the potions on this level lies
+                    for(let i = 0; i < dungeon.potionCount; i++)
+                    {
+                        tempDungeon.map[dungeon.potions[i].x][dungeon.potions[i].y].visible = true;
+                    }
+                }
+                setDungeon(tempDungeon);
                 setMessage(itemValue.message);
             }
 

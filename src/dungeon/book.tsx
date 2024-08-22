@@ -19,11 +19,29 @@ export function drawBook()
 export function getBook()
 {
    
-	var gold: number = (8-((1/10)))/5 * (Random(1, 20) + 20);
-    gold = Math.floor(gold);
-    var message: string = "You find " + gold + " gold pieces.";
+	var roll = Random(1, 4);
 
-    var itemValue: ItemValue = {value:gold, message:message};
+
+    let message: string = "";
+
+    if(roll == 1)
+    {
+        message = "You find a book. It shows where the exit to this level lies.";
+    }
+    else if(roll == 2)
+    {
+        message = "You find a book. It shows where the gold on this level lies.";
+    }
+    else if(roll == 3)
+    {
+        message = "You find a book. It shows where the gems on this level lie.";
+    }
+    else if(roll == 4)
+    {
+        message = "You find a book. It shows where the potions on this level lie.";
+    }
+
+    var itemValue: ItemValue = {value:roll, message:message};
 
     return itemValue;
 }

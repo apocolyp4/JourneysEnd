@@ -13,7 +13,7 @@ import {Character, createPlayer, updateCharacter, setCharacterGold} from './play
 import {ItemValue} from './shared';
 import {getGold} from './gold';
 import {getGems} from './gems';
-import {getBook} from './book';
+//import {getBook} from './book';
 
 export const dungeonWidth: number = 32;
 export const dungeonHeight: number = 32;

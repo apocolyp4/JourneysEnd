@@ -2,7 +2,6 @@
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import {drawGold} from './gold';
 import {drawGem} from './gems';
-import {drawBook} from './book';
 
 type DungeonSprite = 
 {
@@ -74,6 +73,22 @@ function drawBottle()
                             [7, 7, 7, 3, 3, 3, 3, 7, 7, 7],
                             [7, 7, 7, 3, 3, 3, 3, 7, 7, 7],
                             [7, 7, 7, 3, 3, 3, 3, 7, 7, 7],
+                            [7, 7, 7, 7, 7, 7, 7, 7, 7, 7]];
+    return pixels;
+}
+
+
+function drawBook()
+{
+    var pixels: number[][]=[[7, 7, 7, 0, 0, 7, 7, 7, 7, 7],
+                            [7, 7, 0, 7, 7, 0, 7, 7, 7, 7],
+                            [7, 0, 7, 7, 7, 7, 0, 7, 7, 7],
+                            [0, 0, 0, 7, 7, 7, 7, 0, 7, 7],
+                            [7, 0, 0, 0, 7, 7, 7, 7, 0, 7],
+                            [7, 7, 0, 0, 0, 7, 7, 0, 7, 7],
+                            [7, 7, 7, 0, 0, 0, 0, 7, 0, 7],
+                            [7, 7, 7, 7, 0, 0, 0, 0, 7, 7],
+                            [7, 7, 7, 7, 7, 0, 0, 7, 7, 7],
                             [7, 7, 7, 7, 7, 7, 7, 7, 7, 7]];
     return pixels;
 }
